@@ -6,17 +6,21 @@ import networkx as nx
 
 
 # Génération d'un graphe aléatoire à n sommets (avec un remplissage de 25% si possible)
-def init():
+def init(n):
     G = nx.Graph()
-    G.add_nodes_from(range(1,10))
-    G.add_edges_from([(1, 2), (1, 3)])
-    print(G.number_of_nodes())
-    print(G.number_of_edges())
-    print(list(G.edges))
+    G.add_nodes_from(range(1,n))
     
 
 def main():
-    init()
+    try:
+        n = int(input("Entrer un nombre de sommets n : "))
+        if(n<1):
+            raise ValueError("Erreur : nombre de noeud < 1" )
+        init(n)
+    except ValueError as err:
+            print(err)
+
+    
 
 if __name__ == "__main__":
     main()
