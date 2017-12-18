@@ -19,6 +19,7 @@ def init(n):
         G.add_edge(noeud1, noeud2)
     print(list(G.edges()))
     print(list(G.nodes()))
+    print(nx.maximal_matching(G))
 
 def main():
     try:
