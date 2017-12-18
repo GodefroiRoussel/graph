@@ -15,11 +15,13 @@ def init(n):
     remplissageSouhaitee = 0.25 * nbAretesMax
     while (G.number_of_edges() < remplissageSouhaitee): #Remplissage est inférieur à 25% on ajoute des arêtes
         noeud1 = randint(1, n)
-        noeud2= randint(1, n)
+        noeud2 = noeud1
+        while(noeud1==noeud2): #Ici on ne veut pas qu'un graphe possède une arête pointant vers lui même.
+            noeud2= randint(1, n)
         G.add_edge(noeud1, noeud2)
     print(list(G.edges()))
     print(list(G.nodes()))
-    print(nx.maximal_matching(G))
+    print(nx.maximal_matching(G)) 
 
 def main():
     try:
