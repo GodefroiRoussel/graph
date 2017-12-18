@@ -10,6 +10,14 @@ def init(n):
     G = nx.Graph()
     G.add_nodes_from(range(1,n))
     
+    # Le nombre d'arêtes max est de (n*(n-1))/2 et on cherche un remplissage de 0.25%
+    nbAretesMax = (n*(n-1))/2
+    remplissageSouhaitee = 0.25 * nbAretesMax
+    while (G.number_of_edges() < remplissageSouhaitee): #Remplissage est inférieur à 25% on ajoute des arêtes
+        noeud1 = random.randint(1, n-1)
+        noeud2= random.randint(1, n-1)
+        G.add_edges(noeud1, noeud2)
+        
 
 def main():
     try:
