@@ -17,4 +17,8 @@ public class Objet {
 		public int getGain(){
 			return gain;
 		}
+		
+		public double getRatio(){
+			return (double)gain/ (double)poids;
+		}
 }
